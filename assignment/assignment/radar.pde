@@ -62,4 +62,38 @@ class Radar
      arc(0,0,260,260,0,hourAngle);
      
   }
+  
+  void health()
+  {  
+      translate(-200, -1100);
+      String thruster = "Thruster Engage";
+      textSize(26);
+      text(thruster, 100, 80);
+       // Change color
+      if (health < 25)
+      {
+        fill(255, 0, 0);
+      }  
+      else if (health < 50)
+      {
+        fill(255, 200, 0);
+      }
+      else
+      {
+        fill(0, 255, 0);
+      }
+      
+      // Draw bar
+      noStroke();
+      // Get fraction 0->1 and multiply it by width of bar
+      float drawWidth = (health / MAX_HEALTH) * rectWidth;
+      rect(100, 100, drawWidth, 50);
+      
+      // Outline
+      stroke(0);
+      noFill();
+      rect(100, 100, rectWidth, 50);
+  }
+    
+  
 }

@@ -7,6 +7,9 @@
 PImage startScreen, finalScreen;
 int stage;
 float angle = TWO_PI;
+float health = 100;
+float MAX_HEALTH = 100;
+float rectWidth = 200;
 
 Planet sun;
 Radar radar1;
@@ -56,13 +59,13 @@ void draw()
         
         radar1.render();
         radar1.update();
-       
+        radar1.health();
         
         pushMatrix();        //Basically means save everything before
         translate(-600, -200);
         stroke(0, 255, 0);
         fill(255, 255, 255);
-        rect(0, 400, 100, 50);
+        rect(0, -200, 500, 500);
          
         popMatrix();
     }
@@ -88,5 +91,15 @@ void mousePressed()
     } 
    
   }
+  
+   if (health > 0 && mouseButton == LEFT)
+   {
+      health -= 10;
+   }
+   if (health < 100 && mouseButton == RIGHT)
+   {
+      health += 10;
+   }
+  
   
 }
