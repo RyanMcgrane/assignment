@@ -9,7 +9,7 @@ import ddf.minim.*;
 Minim minim;
 
 //name of the instance of the sound 1 
-AudioPlayer sound1, sound2;
+AudioPlayer sound1, sound2, sound3;
 
 //Creating objects of the two classes planet and radar.
 Planet sun;
@@ -39,6 +39,7 @@ void setup()
     //Looks for the sound in the same folder
     sound1 = minim.loadFile("Thruster.wav");
     sound2 = minim.loadFile("radar.wav");
+    sound3 = minim.loadFile("sound2.wav");
    
     //gives the planets their attributes
     sun = new Planet(50, 0, 0);
@@ -142,7 +143,7 @@ void draw()
         
         //image(weapon, -150,-110);
         
-        translate(0, 360);
+        translate(0, 340);
         shape(s1);
         popMatrix();
         
@@ -197,7 +198,14 @@ void keyPressed()
        sun.spawnMoons(5,1);
        health =+10;
        sound1.play();
+       sound3.play();
        
+       pushMatrix();
+       translate(-10,100);
+       String thruster = "***Over Heating***";
+       textSize(26);
+       text(thruster, 100, 80);
+       popMatrix();
    }
   
 }
