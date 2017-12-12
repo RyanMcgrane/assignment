@@ -1,7 +1,7 @@
 /* Author: Ryan McGrane
-   Date: 11/12/2017
+   Date: 12/12/2017
    Description : Sci FI HUD
-*/
+****************************************************************/
 
 // imports the sound file.
 import ddf.minim.*;
@@ -170,22 +170,49 @@ void mousePressed()
     } 
    
   }
-  
-   if (health > 0 && mouseButton == LEFT)
-   {
-      health -= 10;
-   }
-   if (health < 100 && mouseButton == RIGHT)
-   {
-      health += 10;
-      sound1.play();
      
-   }
-   
-   if(health == 0 && mouseButton == RIGHT)
+     if (health > 0 && mouseButton == LEFT)
+     {
+        health -= 10;
+     }
+     if (health < 100 && mouseButton == RIGHT)
+     {
+        health += 10;
+        sound1.play();
+       
+     }
+     
+     if(health == 0 && mouseButton == RIGHT)
+     {
+        sound1.play();
+     }
+}
+
+void keyPressed()
+{
+   switch(key)
    {
-      sound1.play();
+       case ' ':
+       sun = new Planet(50, 0, 20);
+       sun.spawnMoons(5,1);
+       health =+10;
+       sound1.play();
+       
+   }
+  
+}
+
+void keyReleased()
+{
+   switch(key)
+   {
+      case ' ':
+      sun = new Planet(50, 0, 0);
+      sun.spawnMoons(5,1);
+      health = 100;
+     
    }
   
   
 }
+  

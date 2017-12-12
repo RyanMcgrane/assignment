@@ -60,6 +60,8 @@
     void orbit()
     {
         angle = angle + orbitspeed;
+        
+        //Making sure no null pointer exception 
         if(planets != null)
         {
            for(int i = 0; i < planets.length; i++)
@@ -108,6 +110,7 @@
         
         beginShape();
         
+        //start of the the hextagonal base on the hud
         vertex(-650,0);
         vertex(-400, 180);
         vertex(400, 180);

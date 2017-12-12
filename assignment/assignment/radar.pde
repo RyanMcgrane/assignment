@@ -70,8 +70,9 @@ class Radar
   
   void health()
   {  
+      
       translate(-200, -1100);
-      String thruster = "Thruster Engage";
+      String thruster = "SupaaSpeed";
       textSize(26);
       text(thruster, 100, 80);
        // Change color
@@ -96,7 +97,7 @@ class Radar
       rect(100, 100, drawWidth, 50);
       
       // Outline
-      stroke(0);
+      stroke(0, 155, 235);
       noFill();
       rect(100, 100, rectWidth, 50);
   }
