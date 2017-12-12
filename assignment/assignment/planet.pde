@@ -1,4 +1,4 @@
-class Planet {
+ class Planet {
    
     float radius;
     float angle;

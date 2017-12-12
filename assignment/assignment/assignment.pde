@@ -3,22 +3,24 @@
    Description : Sci FI HUD
 */
 
+// Creating a name for the loaded imaged on the first screen
+PImage finalScreen;
 
-PImage startScreen, finalScreen;
-
+// Iniaitising variables for the following:
 int stage;
 float angle = TWO_PI;
+float rectWidth = 200;
 float health = 100;
 float MAX_HEALTH = 100;
-float rectWidth = 200;
 
+//Creating objects of the two classes planet and radar.
 Planet sun;
 Radar radar1;
 
 void setup()
 {
   
-    //put your own screen size in this 
+    //iniatising screensized
     size(1300, 720);
     sun = new Planet(50, 0, 0);
     sun.spawnMoons(5,1);
@@ -28,7 +30,7 @@ void setup()
     stage = 1;
     //Assignment of each image(BG Image) to a variable
     //Fill in the "loadImage("");" with the name of your image with its file type, eg loadImage("MainMenu.jpg");
-    startScreen = loadImage("finalScreen.jpg");
+    finalScreen = loadImage("finalScreen.jpg");
    
 }
 
@@ -37,7 +39,7 @@ void draw()
     
     if(stage==1)
      {
-         image(startScreen, 0, 0, 1300, 720);
+         image(finalScreen, 0, 0, 1300, 720);
          PFont f = createFont("Algerian", 64);
          String text = "Enter the HUD";
          textFont(f);
