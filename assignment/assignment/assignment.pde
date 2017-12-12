@@ -37,14 +37,9 @@ void draw()
     if(stage==1)
      {
          image(startScreen, 0, 0, 1300, 720);
-         pushMatrix();  //Basically means save everything before
-         translate(600, 360);
-         stroke(55, 129, 43);
-         fill(255, 100, 0);
-         rect(0, 0, 100, 50);
-         
-         popMatrix();   // This restores it back. Basically the code inbetween 
-                        // Push and pop is in its own transformation world.
+         String text = "Enter the hud";
+         textSize(26);
+         text(text,550 ,400);
     }
  
     if(stage==2)
