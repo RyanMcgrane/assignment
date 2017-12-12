@@ -57,13 +57,18 @@ class Radar
      translate(650,360);
      rotate(-PI/2);
      
+     //This is the second one. it rotates round eveyry second
      float secondAngle = map(second, 0 , 60, 0 , TWO_PI);
      arc(0,0,300,300,0,secondAngle);
      
+     
+     //This is the minute arc which is given a white colour
      stroke(255);
      float minuteAngle = map(min, 0 , 60, 0 , TWO_PI);
      arc(0,0,280,280,0,minuteAngle);
     
+     //this is is the hour arc which is given it a modulus 12 because it has to
+     //be in 12 hour format
      stroke(13,255,16);
      float hourAngle = map(hour % 12, 0 , 12, 0 , TWO_PI);
      arc(0,0,260,260,0,hourAngle);
