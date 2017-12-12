@@ -45,6 +45,8 @@ class Radar
       line(cx, cy, x, y);
     }
     
+    
+     //creating the clock around the radar in 12 hour format
      float hour = hour();
      float min = minute();
      float second = second();
