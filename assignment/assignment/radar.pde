@@ -75,6 +75,7 @@ class Radar
      
   }
   
+  // the function for the energy bar
   void health()
   {  
       
