@@ -122,6 +122,7 @@ void draw()
         //Keeps the planets Displayed at the top
         translate(width/2, height/4);
        
+        //Calling the functions inside the classes
         sun.hud();
         sun.show();
         sun.orbit();
@@ -131,12 +132,15 @@ void draw()
         radar1.health();
         sound2.play();
         
+        //Creating fonts for The user interface
         PFont f = createFont("Algerian", 28);
         String t = " ^^^";
         textFont(f);
         textSize(28);
         text(t,640 ,70);
         
+        //Makes sure that the translations inbetween this, the data is kept between
+        // the push and pop MAtrix
         pushMatrix();
         translate(180, 460);
         shape(s);
@@ -172,6 +176,7 @@ void mousePressed()
    
   }
      
+     //Allows the health/energy be moved up and down with the mouse keys
      if (health > 0 && mouseButton == LEFT)
      {
         health -= 10;
