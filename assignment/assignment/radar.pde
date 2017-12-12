@@ -1,3 +1,4 @@
+// class called radar 
 class Radar
 {
   float cx, cy;
@@ -7,8 +8,12 @@ class Radar
   float frequency;
   color c;
   
+  
+  //The constructor created for the object radar
   Radar(float cx, float cy, float radius, float frequency, color c)
   {
+    
+    //accesses the data entered for the parameters above
     this.cx = cx;
     this.cy = cy;
     this.radius = radius;

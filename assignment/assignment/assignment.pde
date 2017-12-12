@@ -17,6 +17,7 @@ Radar radar1;
 
 // Creating a name for the loaded imaged on the first screen
 PImage finalScreen;
+PShape s;
 
 // Iniaitising variables for the following:
 int stage;
@@ -48,6 +49,30 @@ void setup()
     //Assignment of each image(BG Image) to a variable
     //Fill in the "loadImage("");" with the name of your image with its file type, eg loadImage("MainMenu.jpg");
     finalScreen = loadImage("finalScreen.jpg");
+    
+     // Make a shape
+     s = createShape();
+     s.beginShape();
+     s.fill(0);
+     s.stroke(0, 155, 235);
+     s.strokeWeight(2);
+     
+     // Exterior part of shape
+     s.vertex(-100, 100);
+     s.vertex(100,100);
+     s.vertex(100,-100);
+     s.vertex(-100,-100);
+      
+     //Interior part of shape
+     s.beginContour();
+     s.vertex(-60,60);
+     s.vertex(-60,-60);
+     //s.vertex(60,60);
+     //s.vertex(-60,60);     
+     //s.endContour();
+      
+     // Finishing off shape
+     s.endShape(CLOSE);
    
 }
 
@@ -88,7 +113,11 @@ void draw()
         textFont(f);
         textSize(28);
         text(t,640 ,70);
-       
+        
+        pushMatrix();
+        translate(200, 500);
+        shape(s);
+        popMatrix();
     }
 
 }
