@@ -5,6 +5,7 @@
 
 
 PImage startScreen, finalScreen;
+
 int stage;
 float angle = TWO_PI;
 float health = 100;
@@ -37,9 +38,11 @@ void draw()
     if(stage==1)
      {
          image(startScreen, 0, 0, 1300, 720);
-         String text = "Enter the hud";
-         textSize(26);
-         text(text,550 ,400);
+         PFont f = createFont("Algerian", 64);
+         String text = "Enter the HUD";
+         textFont(f);
+         textSize(64);
+         text(text,400 ,400);
     }
  
     if(stage==2)
@@ -72,7 +75,7 @@ void mousePressed()
   //Code Bringing you from startScreen to secondScreen when mouse is clicked within your chosen co-ordinates
   if(stage==1)
   {
-   if (mouseX < 700 && mouseX > 600 & mouseY< 410 && mouseY > 350)
+   if (mouseX < 860 && mouseX > 400 & mouseY< 410 && mouseY > 350)
     {
       stage = 2;
     } 
