@@ -59,13 +59,12 @@ void draw()
         radar1.update();
         radar1.health();
         
-        pushMatrix();        //Basically means save everything before
-        translate(-600, -200);
-        stroke(0, 255, 0);
-        fill(255, 255, 255);
-        rect(0, -200, 500, 500);
-         
-        popMatrix();
+        PFont f = createFont("Algerian", 28);
+        String t = " ^^^";
+        textFont(f);
+        textSize(28);
+        text(t,640 ,70);
+       
     }
 
 }
