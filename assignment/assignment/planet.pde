@@ -1,17 +1,22 @@
+ // Name of the class Planet
  class Planet {
    
+    //Iniaising ssome variables giving the planet some attributes
     float radius;
     float angle;
     float distance;
     Planet[] planets;
     float orbitspeed;
     
+    // Constructor of Planet with, 3 parameters r, d and o
     Planet(float r, float d, float o)
     {
        radius = r;
+       
+       //distance from the main star to other planets
        distance = d;
        angle = random(TWO_PI);
-       orbitspeed = o;
+       orbitspeed = o; 
     }
     
     void spawnMoons(int total, int level)
@@ -26,7 +31,7 @@
           planets[i] = new Planet(r, d, o);
           
           //The sun will call spawn moons with 0 then itl make a bunch of planets with level 1
-          //Then theyll make a bunv of planets with level 2
+          //Then theyll make a bunch of planets with level 2
           
           if(level < 2)
           {
@@ -51,13 +56,16 @@
         }
     }
     
+    //Draws the planets when called from main in the void draw() function
     void show()
     {
+       //keeps the data of the translate function in betteween the push and pop matrix
        pushMatrix();
        fill(255, 100);
+       
        rotate(angle);
        
-       //Translates the next planet a distace away from thr previous one.
+       //Translates the next planet a distace away from the previous one.
        translate(distance, 0);
        ellipse(0,0, radius * 2, radius * 2);
        

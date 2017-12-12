@@ -3,6 +3,17 @@
    Description : Sci FI HUD
 */
 
+import ddf.minim.*;
+
+Minim minim;
+
+//name of the instance of the sound 1 
+AudioPlayer sound1, sound2;
+
+//Creating objects of the two classes planet and radar.
+Planet sun;
+Radar radar1;
+
 // Creating a name for the loaded imaged on the first screen
 PImage finalScreen;
 
@@ -13,15 +24,19 @@ float rectWidth = 200;
 float health = 100;
 float MAX_HEALTH = 100;
 
-//Creating objects of the two classes planet and radar.
-Planet sun;
-Radar radar1;
+
 
 void setup()
 {
-  
-    //iniatising screensized
     size(1300, 720);
+    
+    //i passed this to minim so it can load files from the data directory
+    minim = new Minim(this);
+    
+    //Looks for the sound in the same folder
+    sound1 = minim.loadFile("Thruster.wav");
+    sound2 = minim.loadFile("radar.wav");
+   
     sun = new Planet(50, 0, 0);
     sun.spawnMoons(5,1);
     radar1 = new Radar(width / 2, height / 2, 100, 0.5, color(0, 255, 0));
@@ -60,6 +75,7 @@ void draw()
         radar1.render();
         radar1.update();
         radar1.health();
+        sound2.play();
         
         PFont f = createFont("Algerian", 28);
         String t = " ^^^";
@@ -98,6 +114,13 @@ void mousePressed()
    if (health < 100 && mouseButton == RIGHT)
    {
       health += 10;
+      sound1.play();
+     
+   }
+   
+   if(health == 0 && mouseButton == RIGHT)
+   {
+      sound1.play();
    }
   
   

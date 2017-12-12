@@ -85,6 +85,7 @@ class Radar
       
       // Draw bar
       noStroke();
+     
       // Get fraction 0->1 and multiply it by width of bar
       float drawWidth = (health / MAX_HEALTH) * rectWidth;
       rect(100, 100, drawWidth, 50);
