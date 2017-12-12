@@ -3,6 +3,7 @@
    Description : Sci FI HUD
 */
 
+// imports the sound file.
 import ddf.minim.*;
 
 Minim minim;
@@ -25,7 +26,7 @@ float health = 100;
 float MAX_HEALTH = 100;
 
 
-
+// Setup function
 void setup()
 {
     size(1300, 720);
@@ -37,6 +38,7 @@ void setup()
     sound1 = minim.loadFile("Thruster.wav");
     sound2 = minim.loadFile("radar.wav");
    
+    //gives the planets their attributes
     sun = new Planet(50, 0, 0);
     sun.spawnMoons(5,1);
     radar1 = new Radar(width / 2, height / 2, 100, 0.5, color(0, 255, 0));
@@ -49,6 +51,7 @@ void setup()
    
 }
 
+// Draws everything
 void draw()
 {
     
@@ -61,11 +64,14 @@ void draw()
          textSize(64);
          text(text,400 ,400);
     }
- 
+     
+    //when the mouse is clicked brings you to the hud
     if(stage==2)
     {
         
         background(0);
+        
+        //Keeps the planets Displayed at the top
         translate(width/2, height/4);
        
         sun.hud();
@@ -87,6 +93,7 @@ void draw()
 
 }
 
+// If mouse is clicked do what syas in the if statements.
 void mousePressed()
 {
   //Code Bringing you from startScreen to secondScreen when mouse is clicked within your chosen co-ordinates
