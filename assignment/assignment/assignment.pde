@@ -17,7 +17,8 @@ Radar radar1;
 
 // Creating a name for the loaded imaged on the first screen
 PImage finalScreen;
-PShape s;
+PImage weapon;
+PShape s, s1;
 
 // Iniaitising variables for the following:
 int stage;
@@ -49,6 +50,8 @@ void setup()
     //Assignment of each image(BG Image) to a variable
     //Fill in the "loadImage("");" with the name of your image with its file type, eg loadImage("MainMenu.jpg");
     finalScreen = loadImage("finalScreen.jpg");
+    weapon = loadImage("space1.jpg");
+   
     
      // Make a shape
      s = createShape();
@@ -67,12 +70,31 @@ void setup()
      s.beginContour();
      s.vertex(-60,60);
      s.vertex(-60,-60);
-     //s.vertex(60,60);
-     //s.vertex(-60,60);     
-     //s.endContour();
-      
+     
      // Finishing off shape
      s.endShape(CLOSE);
+     
+     s1 = createShape();
+     s1.beginShape();
+     s1.fill(0);
+     s1.stroke(0, 155, 235);
+     s1.strokeWeight(2);
+     
+     // Exterior part of shape
+     s1.vertex(-100, 100);
+     s1.vertex(100,100);
+     s1.vertex(100,-100);
+     s1.vertex(-100,-100);
+      
+     //Interior part of shape
+     s1.beginContour();
+     s1.vertex(-60,60);
+     s1.vertex(-60,-60);
+     
+     // Finishing off shape
+     s1.endShape(CLOSE);
+     
+     
    
 }
 
@@ -115,9 +137,15 @@ void draw()
         text(t,640 ,70);
         
         pushMatrix();
-        translate(200, 500);
+        translate(180, 460);
         shape(s);
+        
+        //image(weapon, -150,-110);
+        
+        translate(0, 360);
+        shape(s1);
         popMatrix();
+        
     }
 
 }
